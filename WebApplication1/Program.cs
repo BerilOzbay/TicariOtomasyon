@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using WebApplication1.Models.Data;
+
 namespace WebApplication1
 {
     public class Program
@@ -8,6 +12,9 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //DbContext yapilandirmasi
+            builder.Services.AddDbContext<TicariContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
