@@ -1,4 +1,6 @@
-﻿
+﻿@using WebApplication1.Models.Entities
+@model List<Category>
+ 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,11 +10,32 @@
     <tr>
         <th>ID</th>
         <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Beyaz Eşya</td>
-    </tr>
+
+    @foreach(var c in Model)
+    {
+        <tr>
+            <td>
+                @c.Id
+            </td>
+            <td>
+                @c.CategoryName
+            </td>
+            <td>
+            <form asp-action="Delete" asp-controller="Category" method="post">
+                <input  type="hidden" name="id" value="@c.Id" />
+                <button type="submit" class="btn btn-danger">Sil</button>
+            </form>
+            </td>
+            <td>
+                <a asp-controller="Category" asp-action="Update" asp-route-id="@c.Id" class="btn btn-success">Güncelle</a>
+            </td>
+
+        </tr>
+    }
+  
 </table>
-<button class="btn btn-primary">Yeni Kategori</button>
+<a asp-controller="Category" asp-action="Add" class="btn btn-primary">Yeni Kategori</a>
 

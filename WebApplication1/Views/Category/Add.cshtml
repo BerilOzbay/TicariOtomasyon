@@ -1,0 +1,13 @@
+﻿@model WebApplication1.Models.Entities.Category;
+
+@{
+    ViewData["Title"] = "Kategori Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Yeni Kategori Sayfası</h2>
+
+<form asp-action="Add" class="form-group" method="post">
+    <label asp-for="CategoryName"></label>
+    <input asp-for="CategoryName" class="form-control mt-2"/>
+    <button class="btn btn-primary mt-2">Kaydet</button>
+</form>
