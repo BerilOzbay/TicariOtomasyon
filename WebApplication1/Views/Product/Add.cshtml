@@ -5,33 +5,41 @@
 }
 
 <h2>Yeni Ürün Sayfası</h2>
-<form class="container" action="/" method="post">
+<form class="container" asp-action="Add" method="post">
     <div class="form-group">
         <label class="form-label" asp-for="ProductName"></label>
-        <input class="form-control" asp-for="ProductName" class="form-control mt-2" />
+        <input class="form-control mt-2" asp-for="ProductName"  />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control" asp-for="Brand" class="form-control mt-2" />
+        <input class="form-control mt-2" asp-for="Brand"  />
     </div>
     <div class="form-group">
-        <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control" asp-for="Brand" class="form-control mt-2" />
+        <label class="form-label" asp-for="Stock"></label>
+        <input class="form-control mt-2" asp-for="Stock"  />
     </div>
     <div class="form-group">
-        <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control" asp-for="Brand" class="form-control mt-2" />
+        <label class="form-label" asp-for="PurchasePrice"></label>
+        <input class="form-control mt-2" asp-for="PurchasePrice"  />
     </div>
     <div class="form-group">
-        <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control" asp-for="Brand" class="form-control mt-2" />
+        <label class="form-label" asp-for="SalePrice"></label>
+        <input class="form-control mt-2" asp-for="SalePrice"  />
     </div>
-
     <div class="form-group">
-        <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control" asp-for="Brand" class="form-control mt-2" />
+        <label class="form-label" asp-for="Threshold"></label>
+        <input type="checkbox" class="form-check-input" asp-for="Threshold" />
     </div>
-   
+    <div class="form-group">
+        <label class="form-label" asp-for="ProductImage"></label>
+        <input class="form-control mt-2" asp-for="ProductImage"  />
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="Category.CategoryName"></label>
+        <select asp-for="Category.CategoryName" class="form-control" asp-items="ViewBag.Categories">
+            <option value="">Select Category</option>
+        </select>
+    </div>
     
     <button class="btn btn-success mt-2">Ekle</button>
 </form>
