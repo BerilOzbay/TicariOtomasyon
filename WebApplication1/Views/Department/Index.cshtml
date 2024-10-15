@@ -1,0 +1,44 @@
+﻿@using WebApplication1.Models.Entities
+@model List<Department>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Departman Detay</th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>
+                @d.Id
+            </td>
+            <td>
+                @d.DepartmentName
+            </td>
+            <td>
+                <form asp-action="Delete" asp-controller="Department" method="post">
+                    <input type="hidden" name="id" value="@d.Id" />
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </td>
+            <td>
+                <a asp-controller="Department" asp-action="Update" asp-route-id="@d.Id" class="btn btn-success">Güncelle</a>
+            </td>
+            <td>
+                <a asp-controller="Department" asp-action="Detail" asp-route-id="@d.Id" class="btn btn-warning">Departman Detay</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+<a asp-controller="Department" asp-action="Add" class="btn btn-primary">Yeni Departman</a>

@@ -24,8 +24,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Add(Category category)
         {
-            _context.Categories.Add(category);
-            _context.SaveChanges();
+            if(category != null)
+            {
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+            }
+          
             return RedirectToAction("Index");
         }
 

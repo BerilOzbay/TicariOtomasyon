@@ -1,0 +1,17 @@
+﻿@model WebApplication1.Models.Entities.Department
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Departman Güncelleme</h2>
+
+<form asp-action="Update" asp-controller="Department" method="post">
+    <div class="form-group">
+        <label asp-for="DepartmentName"></label>
+        <input asp-for="DepartmentName" />
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+
+</form>

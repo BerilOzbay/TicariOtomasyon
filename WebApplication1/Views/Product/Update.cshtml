@@ -3,28 +3,28 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Yeni Ürün Sayfası</h2>
-<form class="container" asp-action="Add" method="post">
+<h2>Ürün Güncelle</h2>
+<form class="container" asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label class="form-label" asp-for="ProductName"></label>
-        <input class="form-control mt-2" asp-for="ProductName"  />
+        <input class="form-control mt-2" asp-for="ProductName" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="Brand"></label>
-        <input class="form-control mt-2" asp-for="Brand"  />
+        <input class="form-control mt-2" asp-for="Brand" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="Stock"></label>
-        <input class="form-control mt-2" asp-for="Stock"  />
+        <input class="form-control mt-2" asp-for="Stock" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="PurchasePrice"></label>
-        <input class="form-control mt-2" asp-for="PurchasePrice"  />
+        <input class="form-control mt-2" asp-for="PurchasePrice" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="SalePrice"></label>
-        <input class="form-control mt-2" asp-for="SalePrice"  />
+        <input class="form-control mt-2" asp-for="SalePrice" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="Threshold"></label>
@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="ProductImage"></label>
-        <input class="form-control mt-2" asp-for="ProductImage"  />
+        <input class="form-control mt-2" asp-for="ProductImage" />
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="Category.CategoryName"></label>
@@ -40,6 +40,5 @@
             <option value="" disabled selected>Select Category</option>
         </select>
     </div>
-    
     <button class="btn btn-success mt-2">Ekle</button>
 </form>

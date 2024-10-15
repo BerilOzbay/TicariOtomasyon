@@ -1,0 +1,13 @@
+﻿@model WebApplication1.Models.Entities.Department;
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Departman Ekle</h2>
+<form asp-action="Add" class="form-group" method="post">
+    <label asp-for="DepartmentName"></label>
+    <input asp-for="DepartmentName" class="form-control mt-2" />
+    <button class="btn btn-success mt-2">Ekle</button>
+</form>
+
