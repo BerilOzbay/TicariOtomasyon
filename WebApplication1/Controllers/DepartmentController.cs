@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using WebApplication1.Models.Data;
 using WebApplication1.Models.Entities;
 
@@ -62,6 +64,19 @@ namespace WebApplication1.Controllers
             updatedDepartment.DepartmentName = department.DepartmentName;
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IActionResult Detail(int id)
+        {
+            var employees = _context.Employees.Include(e => e.Department).Where(e => e.Department.Id == id).ToList();
+            var departmentName = _context.Departments.Where(d => d.Id == id).Select(x => x.DepartmentName).FirstOrDefault();
+            ViewBag.department = departmentName;
+            return View(employees);
+        }
+        public IActionResult SalesDetail(int id)
+        {
+            var sales = _context.Sales.Include(s => s.Employee).Include(p =>p.Product).Include(c => c.Customer).Where(e => e.Employee.Id == id).ToList();
+            ViewBag.personelName = _context.Employees.Where(e => e.Id == id).Select(e => e.PersonnelName).FirstOrDefault();
+            return View(sales);
         }
     }
 }

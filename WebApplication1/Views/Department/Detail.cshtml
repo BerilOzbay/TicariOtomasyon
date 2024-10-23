@@ -1,0 +1,30 @@
+﻿@model List<WebApplication1.Models.Entities.Employee>
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Departman Detayları</h2>
+<table class="table table-hover">
+    <thead>Deparmant Adı: @ViewBag.department</thead>
+    <tr>
+        <th>Personel Numarası</th>
+        <th>Personel Ad</th>
+        <th>Personel Soyad</th>
+        <th>Personel Gorsel</th>
+    </tr>
+    @foreach(var e in Model)
+    {
+        <tr>
+            <td>@e.Id</td>
+            <td>@e.PersonnelName</td>
+            <td>@e.PersonnelSurname</td>
+            <td>@e.PersonnelImage</td>
+            <td>
+                <a asp-controller="Department" asp-action="SalesDetail" asp-route-id="@e.Id" class="btn btn-success"> Satışlar</a>
+            </td>
+        </tr>
+    }
+    
+</table>
+

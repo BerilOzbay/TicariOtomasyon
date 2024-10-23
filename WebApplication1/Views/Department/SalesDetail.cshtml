@@ -1,0 +1,36 @@
+﻿@model List<WebApplication1.Models.Entities.Sale>
+
+@{
+    ViewData["Title"] = "SalesDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satış Detayları</h2>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Adı: @ViewBag.personelName</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Product.ProductName </td>
+            <td>@s.Customer.CustomerName @s.Customer.CustomerSurname</td>
+            <td>@s.Quantity</td>
+            <td>@s.Price</td>
+            <td>@s.TotalPrice</td>
+            <td>@s.Date</td>
+        </tr>
+    }
+
+</table>
+
